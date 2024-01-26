@@ -1,32 +1,43 @@
-page 50139 "parking card"
+page 60100 "Loan Subform"
 {
-    PageType = Card;
-    SourceTable = "parking table";
-    
+    PageType = ListPart;
+    ApplicationArea = All;
+    UsageCategory = Lists;
+    SourceTable = "Loan Line";
+    AutoSplitKey = true;
+
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            repeater(GroupName)
             {
-                field("Parking NUmber";Rec."Parking NUmber")
+                field("Loan Id"; Rec."Loan Id")
                 {
                     ApplicationArea = All;
-                    
+
                 }
-               
-                field("Vehicle type";Rec."Vehicle type")
+                field("Line No."; Rec."Line No.")
                 {
                     ApplicationArea = All;
+
                 }
-                field(invoice;Rec.invoice)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = All;
+
                 }
+                field("Paid Amount"; Rec."Paid Amount")
+                {
+                    ApplicationArea = All;
+
+                }
+
             }
         }
+
     }
-    
+
     actions
     {
         area(Processing)
@@ -34,15 +45,12 @@ page 50139 "parking card"
             action(ActionName)
             {
                 ApplicationArea = All;
-                
-                trigger OnAction()
+
+                trigger OnAction();
                 begin
-                    
+
                 end;
             }
         }
     }
-    
-    var
-        myInt: Integer;
 }

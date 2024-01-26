@@ -17,6 +17,11 @@ table 50137 "parking table"
         {
             DataClassification = ToBeClassified;
         }
+        field(4; "invoice"; code[50])
+        {
+            DataClassification = ToBeClassified;
+            
+        }
     }
 
     keys
@@ -37,6 +42,7 @@ table 50137 "parking table"
         if "Parking NUmber" = '' then begin
             SalesRcvSetup.Get();
             NoSerisMgt.InitSeries(SalesRcvSetup."Parking No", SalesRcvSetup."Parking No", 0D, "Parking NUmber", "Parking number series");
+            NoSerisMgt.InitSeries(SalesRcvSetup."Invoice Nos.", SalesRcvSetup."Invoice Nos.", 0D, "invoice", "Parking number series");
         end;
     end;
 
